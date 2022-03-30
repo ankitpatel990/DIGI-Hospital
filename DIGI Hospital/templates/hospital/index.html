@@ -1,0 +1,298 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block maincontent %}
+<!--Main Content Start-->
+<div class="main-content">
+    <!--Welcome Section-->
+    <section class="welcome-section">
+        <div class="container">
+            <div class="row">
+                <div class="welcome-box">
+                    <div class="col-md-6 col-sm-6">
+                        <div class="welcome-text">
+                            <div class="sectio-title-2"><strong>Welcome to your</strong>
+                                <h2>DIGI Hospital</h2>
+                            </div>
+                            <p> DIGI Hospital is a concept contributing to enhancing personnel productivity,
+                                facilitating hospital operations, improving teh process quality and ensuring patient
+                                safety by integrating cutting-edge technologies such as medical devices, smart
+                                information systems, facility control and automatic conveyor systems, location-based
+                                services, sensors and digital communication tools into health processes. </p>
+                            <p>DIGI Hospital is providing a platform for services such as virtual doctor
+                                appointments and chronic-disease management to consumer health apps that help people
+                                manage their own health through tracking daily steps and accessing exercise and
+                                nutrition programs.</p>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6 col-sm-6">
+                        <div class="welcome-img"><img src="{% static 'heartcare/images/welcome.jpg' %}" alt=""></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Welcome Section End-->
+
+    <!--Home Services Start-->
+    <section class="home-features">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-4 col-sm-4">
+                    <div class="features-box">
+                        <h3>Heart Disease</h3>
+                        <p>If you have feel Chest pain, chest tightness, chest pressure and chest discomfort, Shortness
+                            of breath. Coldness in your legs or arms. Pain in teh neck, jaw, throat, upper abdomen or
+                            back So immediately get consultation from doctor.</p>
+                        <br>
+                        <a href="{% url 'appointment' %}">Get Appointment</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="features-box">
+                        <h3>Best Doctors and facilities</h3>
+                        <p>DIGI hospital has in house as well as consultant expert doctors from their
+                            respective fields. Our doctors are supported by well-trained staff and high-class
+                            sophisticated medical equipment.</p><br>
+                        <a href="tel:+911234567890">Contact Us</a>
+                    </div>
+                </div>
+                <div class="col-md-4 col-sm-4">
+                    <div class="features-box">
+                        <h3>Hospital Time</h3>
+                        <p><span>Monday-Saturday:</span> Full Day<br>
+                            <span>Sunday:</span> 7:00am - 05:00pm <br>
+                            <span>Emergency:</span> 24x7 time <br>
+                        </p>
+                        <a href="tel:+911234567890">Call for Info: +911234567890</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Home Services End-->
+
+    <!--Services Section Start-->
+    <section class="home-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title-3"><strong>Our Departments</strong>
+                        <h2>Departmental Services</h2>
+                    </div>
+                </div>
+
+                <!--service style 1-->
+                <div class="col-md-12">
+                    <div class="service-style-1">
+                        <div class="row">
+                            <!--service box start-->
+                            {% for service in services %}
+                            <div class="col-md-3 col-sm-3">
+                                <div class="service-box">
+                                    <div class="ser-thumb"><a href="{% url 'service_details' service.id %}"
+                                                              class="view"><i
+                                            class="fa fa-heartbeat" aria-hidden="true"></i></a> <img
+                                            src="{{ service.thumbnail.url }}"
+                                            alt="">
+                                    </div>
+                                    <div class="ser-content">
+                                        <h3><a href="{% url 'service_details' service.id %}">{{ service.title }}</a>
+                                        </h3>
+                                        <p>{{ service.description|truncatewords:15 }}</p>
+                                    </div>
+                                </div>
+                            </div>
+                            {% endfor %}
+                            <!--service box End-->
+                        </div>
+                    </div>
+                </div>
+                <!--service style 1 End-->
+
+            </div>
+        </div>
+    </section>
+    <!--Services Section End-->
+
+    <!--Heart Care Start-->
+    <section class="heart-care-services">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="section-title-3 white"><strong>Our Core</strong>
+                        <h2>Expert Services</h2>
+                    </div>
+                </div>
+                <div class="col-md-5 col-sm-5">
+
+                    <!-- Nav tabs -->
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li role="presentation" class="active"><a href="#service-1" aria-controls="service-1" role="tab"
+                                                                  data-toggle="tab"> <i
+                                class="fa fa-graduation-cap"></i> Experienced Surgeons</a></li>
+                        <li role="presentation"><a href="#service-2" aria-controls="service-2" role="tab"
+                                                   data-toggle="tab"> <i
+                                class="fa fa-heartbeat"></i> Special Treatments</a></li>
+                        <li role="presentation"><a href="#service-3" aria-controls="service-3" role="tab"
+                                                   data-toggle="tab"> <i
+                                class="fa fa-cloud"></i> Comfort Environment</a></li>
+                        <li role="presentation"><a href="#service-4" aria-controls="service-4" role="tab"
+                                                   data-toggle="tab"> <i
+                                class="fa fa-user-md"></i> Talented Cardiologist</a></li>
+                        <li role="presentation"><a href="#service-5" aria-controls="service-5" role="tab"
+                                                   data-toggle="tab"> <i
+                                class="fa fa-medkit"></i> High Tech Equipments</a></li>
+                        <li role="presentation"><a href="#service-6" aria-controls="service-6" role="tab"
+                                                   data-toggle="tab"> <i
+                                class="fa fa-umbrella"></i> Personalized Care</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-7 col-sm-7">
+
+                    <!-- Tab panes -->
+                    <div class="tab-content">
+                        <div role="tabpanel" class="tab-pane active" id="service-1">
+                            <div class="ser-tab-text">
+                                <h3>Experienced Surgeons</h3>
+                                <p><i class="fa fa-graduation-cap"></i> Competency and skill assessment are important
+                                    aspects of surgery that mostly rely on direct supervision by an experienced surgeon.
+                                </p><br>
+                                <ul>
+                                    <li><i class="fa fa-check"></i> Critical care surgeon
+                                    </li>
+                                    <li><i class="fa fa-check"></i> Ophthalmologist
+                                    </li>
+                                    <li><i class="fa fa-check"></i> Plastic surgeon</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="service-2">
+                            <div class="ser-tab-text">
+                                <h3>Special Treatments</h3>
+                                <p><i class="fa fa-heartbeat"></i> higher-level medical services that typically require
+                                    a request from your primary care provider.</p>
+                                <ul><br>
+                                    <li><i class="fa fa-check"></i> Nutritional counseling
+                                    </li>
+                                    <li><i class="fa fa-check"></i> specialty surgical services
+                                    </li>
+                                    <li><i class="fa fa-check"></i> Home nursing services</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="service-3">
+                            <div class="ser-tab-text">
+                                <h3>Comfort Environment</h3>
+                                <p><i class="fa fa-cloud"></i> The environment in which teh patient is placed should be
+                                    comfortable and safe and it should contribute to his well being and should not
+                                    retard his recovery. </p>
+                                <ul><br>
+                                    <li><i class="fa fa-check"></i> Use fire proof material for construction
+                                    </li>
+                                    <li><i class="fa fa-check"></i> Regular checking of equipment
+                                    </li>
+                                    <li><i class="fa fa-check"></i> Safe wheel chairs and trolleys</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="service-4">
+                            <div class="ser-tab-text">
+                                <h3>Talented Cardiologist</h3>
+                                <p><i class="fa fa-user-md"></i> A Cardiologist is a Doctor that specializes in the
+                                    Cardiovascular system. Our expert & experienced team of cardiologists provide best
+                                    critical surgery. </p><br>
+                                <ul>
+                                    <li><i class="fa fa-check"></i> Critical thinking
+                                    </li>
+                                    <li><i class="fa fa-check"></i> Complex problem solving
+                                    </li>
+                                    <li><i class="fa fa-check"></i>Self-confidence</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="service-5">
+                            <div class="ser-tab-text">
+                                <h3>High Tech Equipments</h3>
+                                <p><i class="fa fa-medkit"></i>Great technology that seeks to help people has
+                                    revolutionized the whole industry and is definitely here to stay and improve! </p>
+                                <ul><br>
+                                    <li><i class="fa fa-check"></i> Artificial Organs
+                                    </li>
+                                    <li><i class="fa fa-check"></i> 3D Printing
+                                    </li>
+                                    <li><i class="fa fa-check"></i> Wearable Technology</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div role="tabpanel" class="tab-pane" id="service-6">
+                            <div class="ser-tab-text">
+                                <h3>Personalized Care</h3>
+                                <p><i class="fa fa-umbrella"></i> Personalized health care (PHC) is an overarching
+                                    framework for care that unifies predictive technologies with an engaged patient to
+                                    coordinate care with the primary aim of promoting health and preventing disease.
+                                </p><br>
+                                <ul>
+                                    <li><i class="fa fa-check"></i> Eating and meal prep
+                                    </li>
+                                    <li><i class="fa fa-check"></i> Home nursing services
+                                    </li>
+                                    <li><i class="fa fa-check"></i> Nutritional counseling</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--Heart Care End-->
+
+
+    <!--Team Start-->
+    <section class="team">
+        <div class="container">
+            <div class="row">
+                <div class="section-title-3"><strong>Our Team</strong>
+                    <h2>Expert Team</h2>
+                </div>
+            </div>
+            <div class="row">
+                {% for doctor in experts|slice:':4' %}
+                <div class="col-md-3 col-sm-6">
+                    <div class="team-box mb50">
+                        <div class="team-thumb"><a href="{% url 'doctor_details' doctor.id %}" class="view"><i
+                                class="fa fa-Heart"
+                                aria-hidden="true"></i></a> <img src="{{ doctor.picture.url }}" alt=""></div>
+                        <div class="team-text">
+                            <h5><a href="{% url 'doctor_details' doctor.id %}">{{ doctor.name }}</a></h5>
+                            <strong>{{ doctor.speciality }}</strong>
+                            <ul class="team-social">
+                                {% if doctor.twitter %}
+                                <li><a class="tw" href="{{ doctor.twitter }}"><i class="fa fa-twitter"
+                                                                                 aria-hidden="true"></i></a></li>
+                                {% endif %}
+                                {% if doctor.facebook %}
+                                <li><a class="fb" href="{{ doctor.facebook }}"><i class="fa fa-facebook"
+                                                                                  aria-hidden="true"></i></a>
+                                </li>
+                                {% endif %}
+                                {% if doctor.instagram %}
+                                <li><a class="insta" href="{{ doctor.instagram }}"><i class="fa fa-instagram"
+                                                                                      aria-hidden="true"></i></a></li>
+                                {% endif %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+    <!--Team End-->
+
+
+    
+</div>
+<!--Main Content End-->
+{% endblock maincontent %}
